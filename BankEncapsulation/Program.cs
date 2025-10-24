@@ -32,10 +32,7 @@
                     Console.WriteLine("Goodbye");
                     break;
                 }
-                Console.WriteLine("Return to the main menu to continue banking?\nPlease, type 'yes' or 'no'.");
-                string repeat = Console.ReadLine().ToLower();
-                mercantile = repeat == "yes";
-            }while(mercantile);
+            }while(true);
 
             static string BankingDoWhileLoop()
             {
