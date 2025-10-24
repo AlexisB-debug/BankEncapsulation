@@ -12,11 +12,13 @@ public class BankAccount
     public void Deposit(double aDeposit)
     {
         _balance = _balance + aDeposit;
+        Console.WriteLine($"Current ballance: {_balance}");
     }
 
     public void Withdraw(double aWithdrawal)
     {
         _balance = _balance - aWithdrawal;
+        Console.WriteLine($"Current ballance: {_balance}");
     }
 
     public void GetBalance()
