@@ -30,7 +30,14 @@
                     //The README file reads "define a method named GetBalance that will return the amount stored in the balance field"
                     //That is why I didn't create a void return type method that prints the current balance to the console.
                     double currentBalance = alexis.GetBalance();
-                    Console.WriteLine($"Current Balance: {currentBalance} USD");
+                    if (currentBalance >= 0)
+                    {
+                        Console.WriteLine($"Current Balance: ${currentBalance}");
+                    }
+                    else //(CurrentBalance < 0)
+                    {
+                        Console.WriteLine($"Current Balance: -${Math.Abs(currentBalance)}");
+                    }
                 }
                 else //(banking == "goodbye")
                 {
@@ -41,21 +48,26 @@
 
             static string BankingDoWhileLoop()
             {
+                string banking;
+                string deposit = "deposit";
+                string withdrawal = "withdrawal";
+                string currentBalance = "current balance";
+                string goodbye = "goodbye";
+                
+                // I created this 'banking' loop to prevent a typo from prematurely breaking the main loop
+                // before the user completes his/her transactions(s).
+                // Hypothetical example: The user types 'withdrwal' when the user intended 'withdrawal' & the banking loop was not created.
+                // The string 'withdrwal' will activate the else statement & the loop will break before the user completes his/her transaction(s)
+                // The BankingDoWhileLoop method is why only correctly typing 'goodbye' will break the main loop.
+                // I thought creating a method was easier to read than coding a nested loop inside of the main loop.
+                do
                 {
-                    string banking;
-                    string deposit = "deposit";
-                    string withdrawal = "withdrawal";
-                    string currentBalance = "current balance";
-                    string goodbye = "goodbye";
-                    
-                    do
-                    {
-                        Console.WriteLine("Please, type the word 'deposit', 'withdrawal', 'current balance', or 'goodbye'!");
-                        banking = Console.ReadLine().ToLower();
-                    }while(banking != "deposit" && banking != "withdrawal" && banking != "current balance" && banking != "goodbye");
+                    Console.WriteLine("Please, type the word 'deposit', 'withdrawal', 'current balance', or 'goodbye'!");
+                    banking = Console.ReadLine().ToLower();
+                }while(banking != "deposit" && banking != "withdrawal" && banking != "current balance" && banking != "goodbye");
 
-                    return banking;
-                }
+                return banking;
+                
             }
 
             static double FigureTryParseDoWhileLoop()
