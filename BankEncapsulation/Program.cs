@@ -2,6 +2,7 @@
 {
     public class Program
     {
+        BankAccount alexis = new BankAccount();
         static void Main(string[] args)
         {
             Console.WriteLine("Automated Teller Machine");
@@ -9,15 +10,15 @@
             
             if (banking == "deposit")
             {
-                // Deposit();
+                Deposit();
             }
             else if (banking == "withdrawal")
             {
-                // Withdraw();
+                Withdraw();
             }
             else if (banking == "current balance")
             {
-                // GetBanance();
+                GetBanance();
             }
             else //(banking == "goodbye")
             {
