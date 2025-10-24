@@ -29,7 +29,10 @@
                 {
                     //The README file reads "define a method named GetBalance that will return the amount stored in the balance field"
                     //That is why I didn't create a void return type method that prints the current balance to the console.
-                    double currentBalance = alexis.GetBalance();
+                    double currentBalance = Math.Round(alexis.GetBalance(), 2);
+                    // When I ran the program, I noticed the math was incorrect. I Googled this, & the search results were:
+                    // "computers store decimal numbers using a binary system, which creates small rounding errors for many numbers."
+                    // That is why I coded the Math.Round function
                     if (currentBalance >= 0)
                     {
                         Console.WriteLine($"Current Balance: ${currentBalance}");
