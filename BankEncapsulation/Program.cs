@@ -6,26 +6,36 @@
         {
             BankAccount alexis = new BankAccount();
             Console.WriteLine("Automated Teller Machine");
-            string banking = BankingDoWhileLoop();
             
-            if (banking == "deposit")
-            {
-                double deposit = FigureTryParseDoWhileLoop();
-                alexis.Deposit(deposit);
-            }
-            else if (banking == "withdrawal")
-            {
-                double withdrawal = FigureTryParseDoWhileLoop();
-                alexis.Withdraw(withdrawal);
-            }
-            else if (banking == "current balance")
-            {
-                alexis.GetBalance();
-            }
-            else //(banking == "goodbye")
-            {
-                Console.WriteLine("Goodbye");
-            }
+            // I created this do-while loop to store multiple deposits and withdrawals
+            // So that when the user types current balance, the program will return running total
+
+            bool mercantile = true;
+            do{
+                string banking = BankingDoWhileLoop();
+                if (banking == "deposit")
+                {
+                    double deposit = FigureTryParseDoWhileLoop();
+                    alexis.Deposit(deposit);
+                }
+                else if (banking == "withdrawal")
+                {
+                    double withdrawal = FigureTryParseDoWhileLoop();
+                    alexis.Withdraw(withdrawal);
+                }
+                else if (banking == "current balance")
+                {
+                    alexis.GetBalance();
+                }
+                else //(banking == "goodbye")
+                {
+                    Console.WriteLine("Goodbye");
+                    break;
+                }
+                Console.WriteLine("Return to the main menu to continue banking?\nPlease, type 'yes' or 'no'.");
+                string repeat = Console.ReadLine().ToLower();
+                mercantile = repeat == "yes";
+            }while(mercantile);
 
             static string BankingDoWhileLoop()
             {
