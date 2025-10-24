@@ -9,6 +9,8 @@
             
             // I created this do-while loop to store multiple deposits and withdrawals
             // So that when the user types current balance, the program will return running total
+            //I purposed this loop to iterate until the user completes his/her transaction(s)
+            //"goodbye" will break the infinite loop, allowing the user to decide when the loop stops iterating
 
             bool mercantile = true;
             do{
@@ -25,7 +27,10 @@
                 }
                 else if (banking == "current balance")
                 {
-                    alexis.GetBalance();
+                    //The README file reads "define a method named GetBalance that will return the amount stored in the balance field"
+                    //That is why I didn't create a void return type method that prints the current balance to the console.
+                    double currentBalance = alexis.GetBalance();
+                    Console.WriteLine($"Current Balance: {currentBalance} USD");
                 }
                 else //(banking == "goodbye")
                 {

@@ -22,8 +22,9 @@ public class BankAccount
         _balance = _balance - aWithdrawal;
     }
 
-    public void GetBalance()
+    public double GetBalance()
     {
-        Console.WriteLine($"Current Balance: ${_balance}");
+        double currentBalance = _balance;
+        return currentBalance;
     }
 }
