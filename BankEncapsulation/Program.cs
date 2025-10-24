@@ -2,23 +2,25 @@
 {
     public class Program
     {
-        BankAccount alexis = new BankAccount();
         static void Main(string[] args)
         {
+            BankAccount alexis = new BankAccount();
             Console.WriteLine("Automated Teller Machine");
             string banking = BankingDoWhileLoop();
             
             if (banking == "deposit")
             {
-                Deposit();
+                double deposit = FigureTryParseDoWhileLoop();
+                alexis.Deposit(deposit);
             }
             else if (banking == "withdrawal")
             {
-                Withdraw();
+                double withdrawal = FigureTryParseDoWhileLoop();
+                alexis.Withdraw(withdrawal);
             }
             else if (banking == "current balance")
             {
-                GetBanance();
+                alexis.GetBalance();
             }
             else //(banking == "goodbye")
             {
@@ -42,6 +44,20 @@
 
                     return banking;
                 }
+            }
+
+            static double FigureTryParseDoWhileLoop()
+            {
+                bool cashIsAFigure;
+                double cash;
+            
+                do
+                {
+                    Console.WriteLine("Please, type a figure:");
+                    cashIsAFigure = double.TryParse(Console.ReadLine(), out cash);
+                }while(!cashIsAFigure);
+
+                return cash;
             }
         }
     }
