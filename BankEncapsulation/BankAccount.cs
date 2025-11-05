@@ -19,7 +19,15 @@ public class BankAccount
 
     public void Withdraw(double aWithdrawal)
     {
-        _balance = _balance - aWithdrawal;
+        if (_balance - aWithdrawal >= -50)
+        {
+            _balance = _balance - aWithdrawal;
+        }
+        else
+        {
+            Console.WriteLine($"Withdrawal Terminated!\nThe account overdraft privilege is -$50.00.\nThe attempted withdrawal of ${aWithdrawal} leaves a balance of -${Math.Abs(_balance - aWithdrawal)}.");
+        }
+
     }
 
     public double GetBalance()
